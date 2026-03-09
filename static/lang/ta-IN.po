@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Zettlr 3.0.3\n"
 "Report-Msgid-Bugs-To: https://github.com/Zettlr/Zettlr/issues\n"
-"POT-Creation-Date: 2026-03-08 03:16+0000\n"
+"POT-Creation-Date: 2026-03-09 22:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: தமிழ்நேரம் <https://TamilNeram.github.io>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -727,7 +727,7 @@ msgid "Open image"
 msgstr "படத்தை திற"
 
 #: source/common/modules/markdown-editor/context-menu/link-image-menu.ts:147
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in Finder"
@@ -1256,6 +1256,7 @@ msgstr "குறிப்புகள்"
 #: source/app/service-providers/windows/dialog/prompt.ts:32
 #: source/app/service-providers/windows/dialog/should-overwrite-file.ts:33
 #: source/app/service-providers/windows/dialog/should-replace-file.ts:37
+#: source/app/service-providers/windows/dialog/should-close-all.ts:35
 msgid "Ok"
 msgstr "சரி"
 
@@ -1372,15 +1373,16 @@ msgstr "சேமி"
 #. 1: Omit all changes
 #: source/tmp/win-paste-image/App.vue.ts:67
 #: source/tmp/win-main/GlobalSearch.vue.ts:38
-#: source/app/service-providers/documents/index.ts:387
+#: source/app/service-providers/documents/index.ts:396
 #: source/app/service-providers/commands/dir-delete.ts:37
 #: source/app/service-providers/commands/rename-tag.ts:48
 #: source/app/service-providers/commands/file-delete.ts:38
 #: source/app/service-providers/menu/menu.win32.ts:677
 #: source/app/service-providers/menu/menu.darwin.ts:705
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:34
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:36
 #: source/app/service-providers/windows/dialog/should-overwrite-file.ts:32
 #: source/app/service-providers/windows/dialog/should-replace-file.ts:36
+#: source/app/service-providers/windows/dialog/should-close-all.ts:34
 msgid "Cancel"
 msgstr "விலக்கு"
 
@@ -1515,8 +1517,8 @@ msgstr ""
 #: source/tmp/win-assets/FilterTab.vue.ts:62
 #: source/tmp/win-assets/SnippetsTab.vue.ts:49
 #: source/tmp/win-tag-manager/App.vue.ts:94
-#: source/app/service-providers/documents/index.ts:391
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:38
+#: source/app/service-providers/documents/index.ts:400
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:40
 msgid "Unsaved changes"
 msgstr "சேமிக்கப்படாத மாற்றங்கள்"
 
@@ -1815,7 +1817,7 @@ msgid "Last year"
 msgstr ""
 
 #: source/tmp/win-main/file-manager/FileList.vue.ts:71
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:59
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:62
 msgid "No results"
 msgstr "முடிவுகள் இல்லை"
 
@@ -1835,7 +1837,7 @@ msgstr "கோப்பகங்கள்"
 
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:154
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:156
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:56
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:59
 #: source/tmp/win-main/file-manager/util/PopoverDirProps.vue.ts:32
 msgid "Files"
 msgstr "கோப்புகள்"
@@ -1850,12 +1852,12 @@ msgstr "எழுத்துக்கள்"
 msgid "Words"
 msgstr "சொற்கள்"
 
-#: source/tmp/win-main/file-manager/TreeItem.vue.ts:82
+#: source/tmp/win-main/file-manager/TreeItem.vue.ts:83
 msgid "Enter a name"
 msgstr ""
 
 #. Else standard val for new dirs.
-#: source/tmp/win-main/file-manager/TreeItem.vue.ts:345
+#: source/tmp/win-main/file-manager/TreeItem.vue.ts:343
 #: source/app/service-providers/commands/dir-new.ts:32
 msgid "Untitled"
 msgstr "தலைப்பில்லாத்து"
@@ -1865,13 +1867,26 @@ msgstr "தலைப்பில்லாத்து"
 msgid "Filter…"
 msgstr ""
 
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:57
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:60
 msgid "Workspaces"
 msgstr "பணியிடங்கள்"
 
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:58
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:61
 msgid "No open files or folders"
 msgstr "திறந்த கோப்புகள் அல்லது கோப்புறைகள் இல்லை"
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:180
+msgid "Close all files"
+msgstr ""
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:244
+#, javascript-format
+msgid "Collapse %s"
+msgstr ""
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:252
+msgid "Close all workspaces"
+msgstr ""
 
 #: source/tmp/win-main/file-manager/util/PopoverDirProps.vue.ts:31
 #: source/tmp/win-main/file-manager/util/PopoverFileProps.vue.ts:35
@@ -2488,67 +2503,72 @@ msgstr "எழுத்துக்கள்"
 msgid "No open document"
 msgstr "திறந்த ஆவணம் இல்லை"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:413
+#: source/tmp/win-main/DocumentTabs.vue.ts:414
 msgid "Close tab"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:424
+#: source/tmp/win-main/DocumentTabs.vue.ts:425
 msgid "Close other tabs"
 msgstr "மற்ற தாவல்களை மூடு"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:440
+#: source/tmp/win-main/DocumentTabs.vue.ts:441
 msgid "Close all tabs"
 msgstr "எல்லா தாவல்களையும் மூடு"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:456
+#: source/tmp/win-main/DocumentTabs.vue.ts:457
 msgid "Move"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:461
+#: source/tmp/win-main/DocumentTabs.vue.ts:462
 msgid "Move to start"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:467
+#: source/tmp/win-main/DocumentTabs.vue.ts:468
 msgid "Move to end"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:475
+#: source/tmp/win-main/DocumentTabs.vue.ts:476
 msgid "Unpin tab"
 msgstr "பின்நீக்கு தாவல்"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:475
+#: source/tmp/win-main/DocumentTabs.vue.ts:476
 msgid "Pin tab"
 msgstr "முள் தாவல்"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:490
+#: source/tmp/win-main/DocumentTabs.vue.ts:491
 #: source/win-main/file-manager/util/file-item-context.ts:68
 msgid "Copy filename"
 msgstr "கோப்பு பெயரை நகலெடு"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:497
+#: source/tmp/win-main/DocumentTabs.vue.ts:498
 #: source/win-main/file-manager/util/file-item-context.ts:63
 #: source/win-main/file-manager/util/dir-item-context.ts:64
 msgid "Copy path"
 msgstr "நகல் பாதை"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in Explorer"
 msgstr "உலாவியில் வெளிப்படுத்து"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in File Browser"
 msgstr "கோப்பு உலாவியில் வெளிப்படுத்து"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:514
+#: source/tmp/win-main/DocumentTabs.vue.ts:515
 #: source/app/service-providers/menu/menu.win32.ts:415
 #: source/app/service-providers/menu/menu.darwin.ts:415
 #: source/win-main/file-manager/util/file-item-context.ts:73
 msgid "Copy ID"
 msgstr "அடையாளத்தை நகல்"
+
+#: source/tmp/win-main/DocumentTabs.vue.ts:528
+#: source/win-main/file-manager/util/file-item-context.ts:94
+msgid "Close file"
+msgstr "கோப்பை மூடு"
 
 #: source/tmp/win-main/GlobalSearch.vue.ts:31
 msgid "Enter your search terms below"
@@ -2672,29 +2692,34 @@ msgstr "மேற்கோள் தரவுத்தளத்தை ஏற்�
 msgid "Changes to the library file detected. Reloading …"
 msgstr "கண்டறியப்பட்ட நூலகக் கோப்பில் மாற்றங்கள். மீண்டும் ஏற்றுதல்…"
 
-#: source/app/service-providers/documents/index.ts:385
+#: source/app/service-providers/documents/index.ts:394
 msgid "Save changes"
 msgstr "மாற்றங்களை சேமி"
 
-#: source/app/service-providers/documents/index.ts:386
+#: source/app/service-providers/documents/index.ts:395
 msgid "Discard changes"
 msgstr "மாற்றங்களை நிராகரி"
 
-#: source/app/service-providers/documents/index.ts:392
+#: source/app/service-providers/documents/index.ts:401
 msgid "There are unsaved changes. Do you want to save or discard them?"
 msgstr ""
 "சேமிக்கப்படாத மாற்றங்கள் உள்ளன. முதலில் அவற்றைக் சேமிக்க அல்லது நிராகரி விரும்புகிறீர்களா?"
 
-#: source/app/service-providers/documents/index.ts:1083
+#: source/app/service-providers/documents/index.ts:956
+#, javascript-format
+msgid "File: %s"
+msgstr ""
+
+#: source/app/service-providers/documents/index.ts:1119
 msgid "File changed on disk"
 msgstr "வட்டில் கோப்பு மாற்றப்பட்டது"
 
-#: source/app/service-providers/documents/index.ts:1084
+#: source/app/service-providers/documents/index.ts:1120
 #, javascript-format
 msgid "%s changed on disk"
 msgstr "%s வட்டில் மாற்றப்பட்டது"
 
-#: source/app/service-providers/documents/index.ts:1086
+#: source/app/service-providers/documents/index.ts:1122
 #, javascript-format
 msgid ""
 "%s has changed on disk, but the editor contains unsaved changes. Do you want "
@@ -2704,32 +2729,32 @@ msgstr ""
 "திருத்தி உள்ளடக்கங்களை வைத்திருக்க விரும்புகிறீர்களா அல்லது வட்டில் இருந்து கோப்பை ஏற்ற "
 "விரும்புகிறீர்களா?"
 
-#: source/app/service-providers/documents/index.ts:1087
+#: source/app/service-providers/documents/index.ts:1123
 msgid ""
 "Do you want to keep the current editor contents or load the file from disk?"
 msgstr ""
 "தற்போதைய திருத்தி உள்ளடக்கங்களை வைத்திருக்க விரும்புகிறீர்களா அல்லது வட்டில் இருந்து கோப்பை "
 "ஏற்ற விரும்புகிறீர்களா?"
 
-#: source/app/service-providers/documents/index.ts:1090
+#: source/app/service-providers/documents/index.ts:1126
 msgid "Keep editor contents"
 msgstr "திருத்தி உள்ளடக்கங்களை வைத்திரு"
 
-#: source/app/service-providers/documents/index.ts:1091
+#: source/app/service-providers/documents/index.ts:1127
 msgid "Load changes from disk"
 msgstr "வட்டில் இருந்து மாற்றங்களை ஏற்று"
 
-#: source/app/service-providers/documents/index.ts:1094
+#: source/app/service-providers/documents/index.ts:1130
 msgid ""
 "Always load changes from disk if there are no unsaved changes in the editor"
 msgstr ""
 "திருத்தியில் சேமிக்கப்படாத மாற்றங்கள் இல்லாவிட்டால் எப்போதும் வட்டில் இருந்து மாற்றங்களை ஏற்று"
 
-#: source/app/service-providers/documents/index.ts:1563
+#: source/app/service-providers/documents/index.ts:1600
 msgid "Could not save file"
 msgstr "கோப்பை சேமிக்க முடியவில்லை"
 
-#: source/app/service-providers/documents/index.ts:1563
+#: source/app/service-providers/documents/index.ts:1600
 #, javascript-format
 msgid "Could not save file %s: %s"
 msgstr "கோப்பை சேமிக்க முடியவில்லை %s: %s"
@@ -2766,7 +2791,7 @@ msgstr "குறிச்சொல்லை \"%s\" ஐ \"%s\" உடன் %s �
 
 #: source/app/service-providers/commands/rename-tag.ts:47
 #: source/app/service-providers/commands/file-rename.ts:133
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:32
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:34
 msgid "Yes"
 msgstr "ஆம்"
 
@@ -2900,7 +2925,7 @@ msgstr "கோப்புகளுக்கான உள் இணைப்ப�
 
 #. 0: Save all changes
 #: source/app/service-providers/commands/file-rename.ts:134
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:33
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:35
 msgid "No"
 msgstr "இல்லை"
 
@@ -3435,7 +3460,7 @@ msgstr "அனைத்தையும் முன்னால் கொண்�
 msgid "Open file"
 msgstr "கோப்பை திற"
 
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:39
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:41
 msgid "There are unsaved changes. Do you want to save them first?"
 msgstr "சேமிக்கப்படாத மாற்றங்கள் உள்ளன. முதலில் அவற்றைக் சேமிக்க விரும்புகிறீர்களா?"
 
@@ -3466,11 +3491,22 @@ msgstr ""
 msgid "Always load remote changes to the current file"
 msgstr "தற்போதைய கோப்பில் எப்போதும் தொலை மாற்றங்களை ஏற்று"
 
+#: source/app/service-providers/windows/dialog/should-close-all.ts:30
+#: source/app/service-providers/windows/dialog/should-close-all.ts:31
+#, javascript-format
+msgid "Close all %ss"
+msgstr ""
+
+#: source/app/service-providers/windows/dialog/should-close-all.ts:32
+#, javascript-format
+msgid "Do you really want to close all %ss?"
+msgstr ""
+
 #: source/app/service-providers/windows/dialog/save-dialog.ts:58
 msgid "Save file"
 msgstr "கோப்பை சேமி"
 
-#: source/app/service-providers/windows/index.ts:238
+#: source/app/service-providers/windows/index.ts:243
 msgid "Open project folder"
 msgstr "திட்டக் கோப்புறை திற"
 
@@ -4626,10 +4662,6 @@ msgstr "பண்புகள்"
 #: source/win-main/file-manager/util/file-item-context.ts:49
 msgid "Duplicate file"
 msgstr "நகல் கோப்பு"
-
-#: source/win-main/file-manager/util/file-item-context.ts:94
-msgid "Close file"
-msgstr "கோப்பை மூடு"
 
 #: source/win-main/file-manager/util/dir-item-context.ts:51
 msgid "Rename directory"

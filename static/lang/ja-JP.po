@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Zettlr 4.2.1\n"
 "Report-Msgid-Bugs-To: https://github.com/Zettlr/Zettlr/issues\n"
-"POT-Creation-Date: 2026-03-08 03:16+0000\n"
+"POT-Creation-Date: 2026-03-09 22:19+0000\n"
 "PO-Revision-Date: 2026-03-08 01:26+0900\n"
 "Last-Translator: coolvitto\n"
 "Language-Team: \n"
@@ -730,7 +730,7 @@ msgid "Open image"
 msgstr "画像を開く"
 
 #: source/common/modules/markdown-editor/context-menu/link-image-menu.ts:147
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in Finder"
@@ -1300,6 +1300,7 @@ msgstr "参考文献"
 #: source/app/service-providers/windows/dialog/prompt.ts:32
 #: source/app/service-providers/windows/dialog/should-overwrite-file.ts:33
 #: source/app/service-providers/windows/dialog/should-replace-file.ts:37
+#: source/app/service-providers/windows/dialog/should-close-all.ts:35
 msgid "Ok"
 msgstr "OK"
 
@@ -1416,15 +1417,16 @@ msgstr "保存"
 #. 1: Omit all changes
 #: source/tmp/win-paste-image/App.vue.ts:67
 #: source/tmp/win-main/GlobalSearch.vue.ts:38
-#: source/app/service-providers/documents/index.ts:387
+#: source/app/service-providers/documents/index.ts:396
 #: source/app/service-providers/commands/dir-delete.ts:37
 #: source/app/service-providers/commands/rename-tag.ts:48
 #: source/app/service-providers/commands/file-delete.ts:38
 #: source/app/service-providers/menu/menu.win32.ts:677
 #: source/app/service-providers/menu/menu.darwin.ts:705
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:34
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:36
 #: source/app/service-providers/windows/dialog/should-overwrite-file.ts:32
 #: source/app/service-providers/windows/dialog/should-replace-file.ts:36
+#: source/app/service-providers/windows/dialog/should-close-all.ts:34
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -1564,8 +1566,8 @@ msgstr ""
 #: source/tmp/win-assets/FilterTab.vue.ts:62
 #: source/tmp/win-assets/SnippetsTab.vue.ts:49
 #: source/tmp/win-tag-manager/App.vue.ts:94
-#: source/app/service-providers/documents/index.ts:391
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:38
+#: source/app/service-providers/documents/index.ts:400
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:40
 msgid "Unsaved changes"
 msgstr "未保存の変更"
 
@@ -1873,7 +1875,7 @@ msgid "Last year"
 msgstr "去年"
 
 #: source/tmp/win-main/file-manager/FileList.vue.ts:71
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:59
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:62
 msgid "No results"
 msgstr "検索結果なし"
 
@@ -1893,7 +1895,7 @@ msgstr "ディレクトリ"
 
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:154
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:156
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:56
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:59
 #: source/tmp/win-main/file-manager/util/PopoverDirProps.vue.ts:32
 msgid "Files"
 msgstr "ファイル"
@@ -1908,12 +1910,12 @@ msgstr "文字"
 msgid "Words"
 msgstr "単語"
 
-#: source/tmp/win-main/file-manager/TreeItem.vue.ts:82
+#: source/tmp/win-main/file-manager/TreeItem.vue.ts:83
 msgid "Enter a name"
 msgstr "名前の入力"
 
 #. Else standard val for new dirs.
-#: source/tmp/win-main/file-manager/TreeItem.vue.ts:345
+#: source/tmp/win-main/file-manager/TreeItem.vue.ts:343
 #: source/app/service-providers/commands/dir-new.ts:32
 msgid "Untitled"
 msgstr "無題"
@@ -1923,13 +1925,26 @@ msgstr "無題"
 msgid "Filter…"
 msgstr "フィルター…"
 
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:57
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:60
 msgid "Workspaces"
 msgstr "ワークスペース"
 
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:58
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:61
 msgid "No open files or folders"
 msgstr "開いているファイルまたはフォルダーはありません"
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:180
+msgid "Close all files"
+msgstr ""
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:244
+#, javascript-format
+msgid "Collapse %s"
+msgstr ""
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:252
+msgid "Close all workspaces"
+msgstr ""
 
 #: source/tmp/win-main/file-manager/util/PopoverDirProps.vue.ts:31
 #: source/tmp/win-main/file-manager/util/PopoverFileProps.vue.ts:35
@@ -2546,67 +2561,72 @@ msgstr "文字"
 msgid "No open document"
 msgstr "開いているドキュメントはありません"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:413
+#: source/tmp/win-main/DocumentTabs.vue.ts:414
 msgid "Close tab"
 msgstr "タブを閉じる"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:424
+#: source/tmp/win-main/DocumentTabs.vue.ts:425
 msgid "Close other tabs"
 msgstr "他のタブを閉じる"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:440
+#: source/tmp/win-main/DocumentTabs.vue.ts:441
 msgid "Close all tabs"
 msgstr "すべてのタブを閉じる"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:456
+#: source/tmp/win-main/DocumentTabs.vue.ts:457
 msgid "Move"
 msgstr "移動"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:461
+#: source/tmp/win-main/DocumentTabs.vue.ts:462
 msgid "Move to start"
 msgstr "開始地点へ移動"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:467
+#: source/tmp/win-main/DocumentTabs.vue.ts:468
 msgid "Move to end"
 msgstr "終了地点へ移動"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:475
+#: source/tmp/win-main/DocumentTabs.vue.ts:476
 msgid "Unpin tab"
 msgstr "タブのピン留め解除"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:475
+#: source/tmp/win-main/DocumentTabs.vue.ts:476
 msgid "Pin tab"
 msgstr "タブをピン留め"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:490
+#: source/tmp/win-main/DocumentTabs.vue.ts:491
 #: source/win-main/file-manager/util/file-item-context.ts:68
 msgid "Copy filename"
 msgstr "ファイル名をコピー"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:497
+#: source/tmp/win-main/DocumentTabs.vue.ts:498
 #: source/win-main/file-manager/util/file-item-context.ts:63
 #: source/win-main/file-manager/util/dir-item-context.ts:64
 msgid "Copy path"
 msgstr "パスをコピー"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in Explorer"
 msgstr "エクスプローラーで表示"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in File Browser"
 msgstr "ファイルブラウザで表示"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:514
+#: source/tmp/win-main/DocumentTabs.vue.ts:515
 #: source/app/service-providers/menu/menu.win32.ts:415
 #: source/app/service-providers/menu/menu.darwin.ts:415
 #: source/win-main/file-manager/util/file-item-context.ts:73
 msgid "Copy ID"
 msgstr "ID をコピー"
+
+#: source/tmp/win-main/DocumentTabs.vue.ts:528
+#: source/win-main/file-manager/util/file-item-context.ts:94
+msgid "Close file"
+msgstr "ファイルを閉じる"
 
 #: source/tmp/win-main/GlobalSearch.vue.ts:31
 msgid "Enter your search terms below"
@@ -2733,28 +2753,33 @@ msgstr "引用データベースを読み込めませんでした"
 msgid "Changes to the library file detected. Reloading …"
 msgstr "ライブラリファイルの変更が検出されました。再読み込み中…"
 
-#: source/app/service-providers/documents/index.ts:385
+#: source/app/service-providers/documents/index.ts:394
 msgid "Save changes"
 msgstr "変更を保存"
 
-#: source/app/service-providers/documents/index.ts:386
+#: source/app/service-providers/documents/index.ts:395
 msgid "Discard changes"
 msgstr "変更を破棄"
 
-#: source/app/service-providers/documents/index.ts:392
+#: source/app/service-providers/documents/index.ts:401
 msgid "There are unsaved changes. Do you want to save or discard them?"
 msgstr "保存されていない変更があります。保存しますか、それとも破棄しますか?"
 
-#: source/app/service-providers/documents/index.ts:1083
+#: source/app/service-providers/documents/index.ts:956
+#, javascript-format
+msgid "File: %s"
+msgstr ""
+
+#: source/app/service-providers/documents/index.ts:1119
 msgid "File changed on disk"
 msgstr "ディスク上のファイルが変更されました"
 
-#: source/app/service-providers/documents/index.ts:1084
+#: source/app/service-providers/documents/index.ts:1120
 #, javascript-format
 msgid "%s changed on disk"
 msgstr "ディスク上の %s が変更されました"
 
-#: source/app/service-providers/documents/index.ts:1086
+#: source/app/service-providers/documents/index.ts:1122
 #, javascript-format
 msgid ""
 "%s has changed on disk, but the editor contains unsaved changes. Do you want "
@@ -2764,32 +2789,32 @@ msgstr ""
 "現在のエディタの内容を保存しますか、それともディスクからファイルを読み込みま"
 "すか?"
 
-#: source/app/service-providers/documents/index.ts:1087
+#: source/app/service-providers/documents/index.ts:1123
 msgid ""
 "Do you want to keep the current editor contents or load the file from disk?"
 msgstr ""
 "現在のエディタの内容を保持しますか、それともディスクからファイルを読み込みま"
 "すか?"
 
-#: source/app/service-providers/documents/index.ts:1090
+#: source/app/service-providers/documents/index.ts:1126
 msgid "Keep editor contents"
 msgstr "エディタの内容を保持"
 
-#: source/app/service-providers/documents/index.ts:1091
+#: source/app/service-providers/documents/index.ts:1127
 msgid "Load changes from disk"
 msgstr "ディスクから変更を読み込む"
 
-#: source/app/service-providers/documents/index.ts:1094
+#: source/app/service-providers/documents/index.ts:1130
 msgid ""
 "Always load changes from disk if there are no unsaved changes in the editor"
 msgstr ""
 "エディタ内に未保存の変更がない場合は、常にディスクから変更を読み込みます"
 
-#: source/app/service-providers/documents/index.ts:1563
+#: source/app/service-providers/documents/index.ts:1600
 msgid "Could not save file"
 msgstr "ファイルを保存できませんでした"
 
-#: source/app/service-providers/documents/index.ts:1563
+#: source/app/service-providers/documents/index.ts:1600
 #, javascript-format
 msgid "Could not save file %s: %s"
 msgstr "ファイル %s を保存できませんでした : %s"
@@ -2826,7 +2851,7 @@ msgstr "タグ \"%s\" を \"%s\" に置き換えますか (対象 : %s ファイ
 
 #: source/app/service-providers/commands/rename-tag.ts:47
 #: source/app/service-providers/commands/file-rename.ts:133
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:32
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:34
 msgid "Yes"
 msgstr "はい"
 
@@ -2961,7 +2986,7 @@ msgstr "%s の内部リンクをファイル %s に更新しますか?"
 
 #. 0: Save all changes
 #: source/app/service-providers/commands/file-rename.ts:134
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:33
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:35
 msgid "No"
 msgstr "いいえ"
 
@@ -3515,7 +3540,7 @@ msgstr "すべて前面に移動"
 msgid "Open file"
 msgstr "ファイルを開く"
 
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:39
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:41
 msgid "There are unsaved changes. Do you want to save them first?"
 msgstr "未保存の変更があります。先に保存しますか?"
 
@@ -3546,11 +3571,22 @@ msgstr ""
 msgid "Always load remote changes to the current file"
 msgstr "リモートの変更を常に現在のファイルに読み込む"
 
+#: source/app/service-providers/windows/dialog/should-close-all.ts:30
+#: source/app/service-providers/windows/dialog/should-close-all.ts:31
+#, javascript-format
+msgid "Close all %ss"
+msgstr ""
+
+#: source/app/service-providers/windows/dialog/should-close-all.ts:32
+#, javascript-format
+msgid "Do you really want to close all %ss?"
+msgstr ""
+
 #: source/app/service-providers/windows/dialog/save-dialog.ts:58
 msgid "Save file"
 msgstr "ファイルを保存"
 
-#: source/app/service-providers/windows/index.ts:238
+#: source/app/service-providers/windows/index.ts:243
 msgid "Open project folder"
 msgstr "プロジェクト フォルダーを開く"
 
@@ -4767,10 +4803,6 @@ msgstr "プロパティ"
 #: source/win-main/file-manager/util/file-item-context.ts:49
 msgid "Duplicate file"
 msgstr "ファイルを複製"
-
-#: source/win-main/file-manager/util/file-item-context.ts:94
-msgid "Close file"
-msgstr "ファイルを閉じる"
 
 #: source/win-main/file-manager/util/dir-item-context.ts:51
 msgid "Rename directory"

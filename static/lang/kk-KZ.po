@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Zettlr 3.4.3\n"
 "Report-Msgid-Bugs-To: https://github.com/Zettlr/Zettlr/issues\n"
-"POT-Creation-Date: 2026-03-08 03:16+0000\n"
+"POT-Creation-Date: 2026-03-09 22:19+0000\n"
 "PO-Revision-Date: 2025-05-17 14:47+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -729,7 +729,7 @@ msgid "Open image"
 msgstr "Суретті ашу"
 
 #: source/common/modules/markdown-editor/context-menu/link-image-menu.ts:147
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in Finder"
@@ -1258,6 +1258,7 @@ msgstr "Сілтемелер"
 #: source/app/service-providers/windows/dialog/prompt.ts:32
 #: source/app/service-providers/windows/dialog/should-overwrite-file.ts:33
 #: source/app/service-providers/windows/dialog/should-replace-file.ts:37
+#: source/app/service-providers/windows/dialog/should-close-all.ts:35
 msgid "Ok"
 msgstr "Жарайды"
 
@@ -1374,15 +1375,16 @@ msgstr "Сақтау"
 #. 1: Omit all changes
 #: source/tmp/win-paste-image/App.vue.ts:67
 #: source/tmp/win-main/GlobalSearch.vue.ts:38
-#: source/app/service-providers/documents/index.ts:387
+#: source/app/service-providers/documents/index.ts:396
 #: source/app/service-providers/commands/dir-delete.ts:37
 #: source/app/service-providers/commands/rename-tag.ts:48
 #: source/app/service-providers/commands/file-delete.ts:38
 #: source/app/service-providers/menu/menu.win32.ts:677
 #: source/app/service-providers/menu/menu.darwin.ts:705
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:34
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:36
 #: source/app/service-providers/windows/dialog/should-overwrite-file.ts:32
 #: source/app/service-providers/windows/dialog/should-replace-file.ts:36
+#: source/app/service-providers/windows/dialog/should-close-all.ts:34
 msgid "Cancel"
 msgstr "Болдырмау"
 
@@ -1519,8 +1521,8 @@ msgstr ""
 #: source/tmp/win-assets/FilterTab.vue.ts:62
 #: source/tmp/win-assets/SnippetsTab.vue.ts:49
 #: source/tmp/win-tag-manager/App.vue.ts:94
-#: source/app/service-providers/documents/index.ts:391
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:38
+#: source/app/service-providers/documents/index.ts:400
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:40
 msgid "Unsaved changes"
 msgstr "Сақталмаған өзгерістер"
 
@@ -1818,7 +1820,7 @@ msgid "Last year"
 msgstr ""
 
 #: source/tmp/win-main/file-manager/FileList.vue.ts:71
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:59
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:62
 msgid "No results"
 msgstr "Нәтиже жоқ"
 
@@ -1838,7 +1840,7 @@ msgstr "Каталогтар"
 
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:154
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:156
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:56
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:59
 #: source/tmp/win-main/file-manager/util/PopoverDirProps.vue.ts:32
 msgid "Files"
 msgstr "Файлдар"
@@ -1853,12 +1855,12 @@ msgstr "Таңбалар"
 msgid "Words"
 msgstr "Сөздер"
 
-#: source/tmp/win-main/file-manager/TreeItem.vue.ts:82
+#: source/tmp/win-main/file-manager/TreeItem.vue.ts:83
 msgid "Enter a name"
 msgstr ""
 
 #. Else standard val for new dirs.
-#: source/tmp/win-main/file-manager/TreeItem.vue.ts:345
+#: source/tmp/win-main/file-manager/TreeItem.vue.ts:343
 #: source/app/service-providers/commands/dir-new.ts:32
 msgid "Untitled"
 msgstr "Атаусыз"
@@ -1868,13 +1870,26 @@ msgstr "Атаусыз"
 msgid "Filter…"
 msgstr "Сүзу…"
 
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:57
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:60
 msgid "Workspaces"
 msgstr "Жұмыс кеңістіктері"
 
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:58
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:61
 msgid "No open files or folders"
 msgstr "Ашық файлдар немесе қалталар жоқ"
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:180
+msgid "Close all files"
+msgstr ""
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:244
+#, javascript-format
+msgid "Collapse %s"
+msgstr ""
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:252
+msgid "Close all workspaces"
+msgstr ""
 
 #: source/tmp/win-main/file-manager/util/PopoverDirProps.vue.ts:31
 #: source/tmp/win-main/file-manager/util/PopoverFileProps.vue.ts:35
@@ -2491,67 +2506,72 @@ msgstr "таңба"
 msgid "No open document"
 msgstr "Ашық құжат жоқ"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:413
+#: source/tmp/win-main/DocumentTabs.vue.ts:414
 msgid "Close tab"
 msgstr "Қойындыны жабу"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:424
+#: source/tmp/win-main/DocumentTabs.vue.ts:425
 msgid "Close other tabs"
 msgstr "Басқа қойындыларды жабу"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:440
+#: source/tmp/win-main/DocumentTabs.vue.ts:441
 msgid "Close all tabs"
 msgstr "Барлық қойындыларды жабу"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:456
+#: source/tmp/win-main/DocumentTabs.vue.ts:457
 msgid "Move"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:461
+#: source/tmp/win-main/DocumentTabs.vue.ts:462
 msgid "Move to start"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:467
+#: source/tmp/win-main/DocumentTabs.vue.ts:468
 msgid "Move to end"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:475
+#: source/tmp/win-main/DocumentTabs.vue.ts:476
 msgid "Unpin tab"
 msgstr "Қойындыны бекітуден алу"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:475
+#: source/tmp/win-main/DocumentTabs.vue.ts:476
 msgid "Pin tab"
 msgstr "Қойындыны бекіту"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:490
+#: source/tmp/win-main/DocumentTabs.vue.ts:491
 #: source/win-main/file-manager/util/file-item-context.ts:68
 msgid "Copy filename"
 msgstr "Файл атауын көшіру"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:497
+#: source/tmp/win-main/DocumentTabs.vue.ts:498
 #: source/win-main/file-manager/util/file-item-context.ts:63
 #: source/win-main/file-manager/util/dir-item-context.ts:64
 msgid "Copy path"
 msgstr "Жолды көшіру"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in Explorer"
 msgstr "Explorer-де көрсету"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in File Browser"
 msgstr "Файл браузерінде көрсету"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:514
+#: source/tmp/win-main/DocumentTabs.vue.ts:515
 #: source/app/service-providers/menu/menu.win32.ts:415
 #: source/app/service-providers/menu/menu.darwin.ts:415
 #: source/win-main/file-manager/util/file-item-context.ts:73
 msgid "Copy ID"
 msgstr "ID көшіру"
+
+#: source/tmp/win-main/DocumentTabs.vue.ts:528
+#: source/win-main/file-manager/util/file-item-context.ts:94
+msgid "Close file"
+msgstr "Файлды жабу"
 
 #: source/tmp/win-main/GlobalSearch.vue.ts:31
 msgid "Enter your search terms below"
@@ -2678,30 +2698,35 @@ msgstr "Дәйексөз дерекқорын жүктеу мүмкін болм
 msgid "Changes to the library file detected. Reloading …"
 msgstr "Кітапхана файлындағы өзгерістер анықталды. Қайта жүктелуде..."
 
-#: source/app/service-providers/documents/index.ts:385
+#: source/app/service-providers/documents/index.ts:394
 msgid "Save changes"
 msgstr "Өзгерістерді сақтау"
 
-#: source/app/service-providers/documents/index.ts:386
+#: source/app/service-providers/documents/index.ts:395
 msgid "Discard changes"
 msgstr "Өзгерістерден бас тарту"
 
-#: source/app/service-providers/documents/index.ts:392
+#: source/app/service-providers/documents/index.ts:401
 msgid "There are unsaved changes. Do you want to save or discard them?"
 msgstr ""
 "Сақталмаған өзгерістер бар. Оларды сақтағыңыз келе ме немесе олардан бас "
 "тартқыңыз келе ме?"
 
-#: source/app/service-providers/documents/index.ts:1083
+#: source/app/service-providers/documents/index.ts:956
+#, javascript-format
+msgid "File: %s"
+msgstr ""
+
+#: source/app/service-providers/documents/index.ts:1119
 msgid "File changed on disk"
 msgstr "Файл дискіде өзгертілді"
 
-#: source/app/service-providers/documents/index.ts:1084
+#: source/app/service-providers/documents/index.ts:1120
 #, javascript-format
 msgid "%s changed on disk"
 msgstr "%s дискіде өзгертілді"
 
-#: source/app/service-providers/documents/index.ts:1086
+#: source/app/service-providers/documents/index.ts:1122
 #, javascript-format
 msgid ""
 "%s has changed on disk, but the editor contains unsaved changes. Do you want "
@@ -2711,33 +2736,33 @@ msgstr ""
 "Редактордың ағымдағы мазмұнын сақтағыңыз келе ме немесе файлды дискіден "
 "жүктегіңіз келе ме?"
 
-#: source/app/service-providers/documents/index.ts:1087
+#: source/app/service-providers/documents/index.ts:1123
 msgid ""
 "Do you want to keep the current editor contents or load the file from disk?"
 msgstr ""
 "Редактордың ағымдағы мазмұнын сақтағыңыз келе ме немесе файлды дискіден "
 "жүктегіңіз келе ме?"
 
-#: source/app/service-providers/documents/index.ts:1090
+#: source/app/service-providers/documents/index.ts:1126
 msgid "Keep editor contents"
 msgstr "Редактор мазмұнын сақтау"
 
-#: source/app/service-providers/documents/index.ts:1091
+#: source/app/service-providers/documents/index.ts:1127
 msgid "Load changes from disk"
 msgstr "Өзгерістерді дискіден жүктеу"
 
-#: source/app/service-providers/documents/index.ts:1094
+#: source/app/service-providers/documents/index.ts:1130
 msgid ""
 "Always load changes from disk if there are no unsaved changes in the editor"
 msgstr ""
 "Егер редакторда сақталмаған өзгерістер болмаса, әрқашан өзгерістерді "
 "дискіден жүктеу"
 
-#: source/app/service-providers/documents/index.ts:1563
+#: source/app/service-providers/documents/index.ts:1600
 msgid "Could not save file"
 msgstr "Файлды сақтау мүмкін болмады"
 
-#: source/app/service-providers/documents/index.ts:1563
+#: source/app/service-providers/documents/index.ts:1600
 #, javascript-format
 msgid "Could not save file %s: %s"
 msgstr "Файлды сақтау мүмкін болмады %s: %s"
@@ -2774,7 +2799,7 @@ msgstr "\"%s\" тегін \"%s\" арқылы %s файлдарында ауыс
 
 #: source/app/service-providers/commands/rename-tag.ts:47
 #: source/app/service-providers/commands/file-rename.ts:133
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:32
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:34
 msgid "Yes"
 msgstr "Иә"
 
@@ -2908,7 +2933,7 @@ msgstr "%s ішкі сілтемелерін %s файлына жаңартас�
 
 #. 0: Save all changes
 #: source/app/service-providers/commands/file-rename.ts:134
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:33
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:35
 msgid "No"
 msgstr "Жоқ"
 
@@ -3459,7 +3484,7 @@ msgstr "Барлығын алдыға шығару"
 msgid "Open file"
 msgstr "Файлды ашу"
 
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:39
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:41
 msgid "There are unsaved changes. Do you want to save them first?"
 msgstr "Сақталмаған өзгерістер бар. Алдымен оларды сақтағыңыз келе ме?"
 
@@ -3490,11 +3515,22 @@ msgstr ""
 msgid "Always load remote changes to the current file"
 msgstr "Әрқашан ағымдағы файлға қашықтан жасалған өзгерістерді жүктеу"
 
+#: source/app/service-providers/windows/dialog/should-close-all.ts:30
+#: source/app/service-providers/windows/dialog/should-close-all.ts:31
+#, javascript-format
+msgid "Close all %ss"
+msgstr ""
+
+#: source/app/service-providers/windows/dialog/should-close-all.ts:32
+#, javascript-format
+msgid "Do you really want to close all %ss?"
+msgstr ""
+
 #: source/app/service-providers/windows/dialog/save-dialog.ts:58
 msgid "Save file"
 msgstr "Файлды сақтау"
 
-#: source/app/service-providers/windows/index.ts:238
+#: source/app/service-providers/windows/index.ts:243
 msgid "Open project folder"
 msgstr "Жоба қалтасын ашу"
 
@@ -4649,10 +4685,6 @@ msgstr "Қасиеттері"
 #: source/win-main/file-manager/util/file-item-context.ts:49
 msgid "Duplicate file"
 msgstr "Файлды көшіру"
-
-#: source/win-main/file-manager/util/file-item-context.ts:94
-msgid "Close file"
-msgstr "Файлды жабу"
 
 #: source/win-main/file-manager/util/dir-item-context.ts:51
 msgid "Rename directory"

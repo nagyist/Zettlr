@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Zettlr 2.3.0\n"
 "Report-Msgid-Bugs-To: https://github.com/Zettlr/Zettlr/issues\n"
-"POT-Creation-Date: 2026-03-08 03:16+0000\n"
+"POT-Creation-Date: 2026-03-09 22:19+0000\n"
 "PO-Revision-Date: 2024-04-03 00:00+UTC\n"
 "Last-Translator: Hung Vu <hung.v.vu.cs@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -755,7 +755,7 @@ msgid "Open image"
 msgstr "Mở ảnh"
 
 #: source/common/modules/markdown-editor/context-menu/link-image-menu.ts:147
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in Finder"
@@ -1289,6 +1289,7 @@ msgstr "Tài liệu tham khảo"
 #: source/app/service-providers/windows/dialog/prompt.ts:32
 #: source/app/service-providers/windows/dialog/should-overwrite-file.ts:33
 #: source/app/service-providers/windows/dialog/should-replace-file.ts:37
+#: source/app/service-providers/windows/dialog/should-close-all.ts:35
 msgid "Ok"
 msgstr "Đồng ý"
 
@@ -1452,15 +1453,16 @@ msgstr "Lưu"
 #. 1: Omit all changes
 #: source/tmp/win-paste-image/App.vue.ts:67
 #: source/tmp/win-main/GlobalSearch.vue.ts:38
-#: source/app/service-providers/documents/index.ts:387
+#: source/app/service-providers/documents/index.ts:396
 #: source/app/service-providers/commands/dir-delete.ts:37
 #: source/app/service-providers/commands/rename-tag.ts:48
 #: source/app/service-providers/commands/file-delete.ts:38
 #: source/app/service-providers/menu/menu.win32.ts:677
 #: source/app/service-providers/menu/menu.darwin.ts:705
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:34
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:36
 #: source/app/service-providers/windows/dialog/should-overwrite-file.ts:32
 #: source/app/service-providers/windows/dialog/should-replace-file.ts:36
+#: source/app/service-providers/windows/dialog/should-close-all.ts:34
 msgid "Cancel"
 msgstr "Huỷ"
 
@@ -1622,8 +1624,8 @@ msgstr ""
 #: source/tmp/win-assets/FilterTab.vue.ts:62
 #: source/tmp/win-assets/SnippetsTab.vue.ts:49
 #: source/tmp/win-tag-manager/App.vue.ts:94
-#: source/app/service-providers/documents/index.ts:391
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:38
+#: source/app/service-providers/documents/index.ts:400
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:40
 msgid "Unsaved changes"
 msgstr "Thay đổi chưa được lưu"
 
@@ -1923,7 +1925,7 @@ msgid "Last year"
 msgstr ""
 
 #: source/tmp/win-main/file-manager/FileList.vue.ts:71
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:59
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:62
 msgid "No results"
 msgstr "Không có kết quả"
 
@@ -1943,7 +1945,7 @@ msgstr "Các thư mục"
 
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:154
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:156
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:56
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:59
 #: source/tmp/win-main/file-manager/util/PopoverDirProps.vue.ts:32
 msgid "Files"
 msgstr "Các tập tin"
@@ -1958,12 +1960,12 @@ msgstr "Các kí tự"
 msgid "Words"
 msgstr "Các từ"
 
-#: source/tmp/win-main/file-manager/TreeItem.vue.ts:82
+#: source/tmp/win-main/file-manager/TreeItem.vue.ts:83
 msgid "Enter a name"
 msgstr ""
 
 #. Else standard val for new dirs.
-#: source/tmp/win-main/file-manager/TreeItem.vue.ts:345
+#: source/tmp/win-main/file-manager/TreeItem.vue.ts:343
 #: source/app/service-providers/commands/dir-new.ts:32
 msgid "Untitled"
 msgstr "Chưa đặt tên"
@@ -1973,13 +1975,26 @@ msgstr "Chưa đặt tên"
 msgid "Filter…"
 msgstr ""
 
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:57
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:60
 msgid "Workspaces"
 msgstr "Vùng Làm Việc"
 
-#: source/tmp/win-main/file-manager/FileTree.vue.ts:58
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:61
 msgid "No open files or folders"
 msgstr "Không có tập tin hay thư mục được mở"
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:180
+msgid "Close all files"
+msgstr ""
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:244
+#, javascript-format
+msgid "Collapse %s"
+msgstr ""
+
+#: source/tmp/win-main/file-manager/FileTree.vue.ts:252
+msgid "Close all workspaces"
+msgstr ""
 
 #: source/tmp/win-main/file-manager/util/PopoverDirProps.vue.ts:31
 #: source/tmp/win-main/file-manager/util/PopoverFileProps.vue.ts:35
@@ -2598,68 +2613,73 @@ msgstr "kí tự"
 msgid "No open document"
 msgstr "Không có văn bản được mở"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:413
+#: source/tmp/win-main/DocumentTabs.vue.ts:414
 msgid "Close tab"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:424
+#: source/tmp/win-main/DocumentTabs.vue.ts:425
 msgid "Close other tabs"
 msgstr "Đóng các tab khác"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:440
+#: source/tmp/win-main/DocumentTabs.vue.ts:441
 msgid "Close all tabs"
 msgstr "Đóng tất cả tab"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:456
+#: source/tmp/win-main/DocumentTabs.vue.ts:457
 msgid "Move"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:461
+#: source/tmp/win-main/DocumentTabs.vue.ts:462
 msgid "Move to start"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:467
+#: source/tmp/win-main/DocumentTabs.vue.ts:468
 msgid "Move to end"
 msgstr ""
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:475
+#: source/tmp/win-main/DocumentTabs.vue.ts:476
 msgid "Unpin tab"
 msgstr "Bỏ ghim tab"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:475
+#: source/tmp/win-main/DocumentTabs.vue.ts:476
 msgid "Pin tab"
 msgstr "Ghim tab"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:490
+#: source/tmp/win-main/DocumentTabs.vue.ts:491
 #: source/win-main/file-manager/util/file-item-context.ts:68
 msgid "Copy filename"
 msgstr "Sao chép tên tập tin"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:497
+#: source/tmp/win-main/DocumentTabs.vue.ts:498
 #: source/win-main/file-manager/util/file-item-context.ts:63
 #: source/win-main/file-manager/util/dir-item-context.ts:64
 #, fuzzy
 msgid "Copy path"
 msgstr "Sao chép đường dẫn đầy đủ"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in Explorer"
 msgstr "Hiển thị trong Explorer"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:504
+#: source/tmp/win-main/DocumentTabs.vue.ts:505
 #: source/win-main/file-manager/util/file-item-context.ts:82
 #: source/win-main/file-manager/util/dir-item-context.ts:72
 msgid "Reveal in File Browser"
 msgstr "Hiển thị trong File Browser"
 
-#: source/tmp/win-main/DocumentTabs.vue.ts:514
+#: source/tmp/win-main/DocumentTabs.vue.ts:515
 #: source/app/service-providers/menu/menu.win32.ts:415
 #: source/app/service-providers/menu/menu.darwin.ts:415
 #: source/win-main/file-manager/util/file-item-context.ts:73
 msgid "Copy ID"
 msgstr "Sao chép ID"
+
+#: source/tmp/win-main/DocumentTabs.vue.ts:528
+#: source/win-main/file-manager/util/file-item-context.ts:94
+msgid "Close file"
+msgstr "Đóng tập tin"
 
 #: source/tmp/win-main/GlobalSearch.vue.ts:31
 msgid "Enter your search terms below"
@@ -2783,32 +2803,37 @@ msgstr "Cơ sở dữ liệu trích dẫn không thể mở được"
 msgid "Changes to the library file detected. Reloading …"
 msgstr "Thay đổi trong tập tin thư viện được phát hiện. Đang tải lại ..."
 
-#: source/app/service-providers/documents/index.ts:385
+#: source/app/service-providers/documents/index.ts:394
 #, fuzzy
 msgid "Save changes"
 msgstr "Thay đổi chưa được lưu"
 
-#: source/app/service-providers/documents/index.ts:386
+#: source/app/service-providers/documents/index.ts:395
 #, fuzzy
 msgid "Discard changes"
 msgstr "Thay đổi chưa được lưu"
 
-#: source/app/service-providers/documents/index.ts:392
+#: source/app/service-providers/documents/index.ts:401
 #, fuzzy
 msgid "There are unsaved changes. Do you want to save or discard them?"
 msgstr "Có những thay đổi chưa lưu lại. Bạn muốn lưu hay bỏ qua chúng?"
 
-#: source/app/service-providers/documents/index.ts:1083
+#: source/app/service-providers/documents/index.ts:956
+#, javascript-format
+msgid "File: %s"
+msgstr ""
+
+#: source/app/service-providers/documents/index.ts:1119
 #, fuzzy
 msgid "File changed on disk"
 msgstr "Tập tin được thay đổi trên bộ nhớ"
 
-#: source/app/service-providers/documents/index.ts:1084
+#: source/app/service-providers/documents/index.ts:1120
 #, javascript-format
 msgid "%s changed on disk"
 msgstr "%s được thay đổi trên bộ nhớ"
 
-#: source/app/service-providers/documents/index.ts:1086
+#: source/app/service-providers/documents/index.ts:1122
 #, javascript-format
 msgid ""
 "%s has changed on disk, but the editor contains unsaved changes. Do you want "
@@ -2818,32 +2843,32 @@ msgstr ""
 "đượclưu. Bạn muốn giữ nội dung của trình soạn thảo hay tải nội dung được lưu "
 "trên đĩa?"
 
-#: source/app/service-providers/documents/index.ts:1087
+#: source/app/service-providers/documents/index.ts:1123
 msgid ""
 "Do you want to keep the current editor contents or load the file from disk?"
 msgstr ""
 "Bạn muốn giữ nội dung của trình soản thảo hay tải nội dung được lưu trên đĩa?"
 
-#: source/app/service-providers/documents/index.ts:1090
+#: source/app/service-providers/documents/index.ts:1126
 msgid "Keep editor contents"
 msgstr "Giữ nội dung của trình soạn thảo"
 
-#: source/app/service-providers/documents/index.ts:1091
+#: source/app/service-providers/documents/index.ts:1127
 msgid "Load changes from disk"
 msgstr "Tải nội dung từ đĩa"
 
-#: source/app/service-providers/documents/index.ts:1094
+#: source/app/service-providers/documents/index.ts:1130
 msgid ""
 "Always load changes from disk if there are no unsaved changes in the editor"
 msgstr ""
 "Luôn tải nội dung từ đĩa nếu không có thay đổi chưa được lưu trong trình "
 "soạn thảo"
 
-#: source/app/service-providers/documents/index.ts:1563
+#: source/app/service-providers/documents/index.ts:1600
 msgid "Could not save file"
 msgstr ""
 
-#: source/app/service-providers/documents/index.ts:1563
+#: source/app/service-providers/documents/index.ts:1600
 #, javascript-format
 msgid "Could not save file %s: %s"
 msgstr ""
@@ -2880,7 +2905,7 @@ msgstr "Thay thế thẻ\"%s\" với \"%s\" trong %s tệp?"
 
 #: source/app/service-providers/commands/rename-tag.ts:47
 #: source/app/service-providers/commands/file-rename.ts:133
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:32
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:34
 msgid "Yes"
 msgstr "Có"
 
@@ -3015,7 +3040,7 @@ msgstr "Cập nhật đường dẫn nội bộ %s vào file %s?"
 
 #. 0: Save all changes
 #: source/app/service-providers/commands/file-rename.ts:134
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:33
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:35
 msgid "No"
 msgstr "Không"
 
@@ -3554,7 +3579,7 @@ msgstr "Đưa Tất cả lên Trước"
 msgid "Open file"
 msgstr "Mở tập tin"
 
-#: source/app/service-providers/windows/dialog/ask-save-changes.ts:39
+#: source/app/service-providers/windows/dialog/ask-save-changes.ts:41
 #, fuzzy
 msgid "There are unsaved changes. Do you want to save them first?"
 msgstr "Có những thay đổi chưa lưu lại. Bạn muốn bỏ qua hay lưu chúng trước?"
@@ -3584,11 +3609,22 @@ msgstr ""
 msgid "Always load remote changes to the current file"
 msgstr "Luôn luôn lấy các thay đổi bên ngoài vào tập tin hiện tại"
 
+#: source/app/service-providers/windows/dialog/should-close-all.ts:30
+#: source/app/service-providers/windows/dialog/should-close-all.ts:31
+#, javascript-format
+msgid "Close all %ss"
+msgstr ""
+
+#: source/app/service-providers/windows/dialog/should-close-all.ts:32
+#, javascript-format
+msgid "Do you really want to close all %ss?"
+msgstr ""
+
 #: source/app/service-providers/windows/dialog/save-dialog.ts:58
 msgid "Save file"
 msgstr "Lưu tập tin"
 
-#: source/app/service-providers/windows/index.ts:238
+#: source/app/service-providers/windows/index.ts:243
 msgid "Open project folder"
 msgstr "Mở thư mục dự án"
 
@@ -4781,10 +4817,6 @@ msgstr "Các thuộc tính"
 #: source/win-main/file-manager/util/file-item-context.ts:49
 msgid "Duplicate file"
 msgstr "Tạo tập tin bản sao"
-
-#: source/win-main/file-manager/util/file-item-context.ts:94
-msgid "Close file"
-msgstr "Đóng tập tin"
 
 #: source/win-main/file-manager/util/dir-item-context.ts:51
 msgid "Rename directory"
